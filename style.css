@@ -1,0 +1,65 @@
+:root {
+    --primary-dark: #333;
+    --primarry-light: #D7D2CB;
+    --secondary-light: #DBD7D2;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+     box-sizing: border-box;
+}
+
+html {
+/* footer  help*/
+position: relative;
+min-height: 100%;
+}
+
+body {
+    background-color: var(--primarry-light);
+    color:var(--primary-dark);
+    font-family: 'Nova Oval', sans-serif;
+    line-height: 1.6;
+    /* footer  help*/
+    margin-bottom: 100px;
+}
+
+h1 {
+    line-height: 1.2;
+}
+
+button,
+input {
+    width: 100%;
+    border: none;
+    color:inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+/* header */
+
+.header {
+    padding: 50px 0
+}
+
+.title {
+    text-align: center;
+    font-size: 85px;
+}
+
+/* main */
+
+.main {
+     display: flex;
+     align-items: center;
+     justify-content: flex-start;
+     gap: 100px;
+     max-width: 1100px;
+     margin: 0 auto;
+    }
