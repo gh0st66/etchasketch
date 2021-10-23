@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
 :root {
-    --primary-dark: #333;
-    --primarry-light: #D7D2CB;
-    --secondary-light: #DBD7D2;
+    --primary-dark: #343434;
+    --primary-light: #DC143C;
+    --secondary-light: #FFFFFF;
+    --content-width: 400px;
 }
 
 *,
@@ -9,57 +13,179 @@
 *::after {
     margin: 0;
     padding: 0;
-     box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
 }
 
-html {
-/* footer  help*/
-position: relative;
-min-height: 100%;
+body{
+    background-color: var(--primary-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+a {
+    color: red;
 }
 
-body {
-    background-color: var(--primarry-light);
-    color:var(--primary-dark);
-    font-family: 'Nova Oval', sans-serif;
-    line-height: 1.6;
-    /* footer  help*/
-    margin-bottom: 100px;
-}
-
-h1 {
-    line-height: 1.2;
-}
-
-button,
-input {
-    width: 100%;
-    border: none;
-    color:inherit;
-    font-family: inherit;
-    font-size: inherit;
-    cursor: pointer;
-    outline: none;
-}
-
-/* header */
-
-.header {
-    padding: 50px 0
-}
-
-.title {
+.etch-a-sketch {
+    font-size: 3em;
     text-align: center;
-    font-size: 85px;
+    margin: 30px;
+    color: var(--primary-light);
+}
+/* container section */
+.container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: var(--secondary-light);
 }
 
-/* main */
+.container-wrapper {
+    height: 75vw;
+    width: 75vw;
+    max-height: var(--content-width);
+    max-width: var(--content-width);
+    margin: 30px auto;
+    position: relative;
+}
+.container-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    bottom: -15px;
+    right: -15px;
+    left: -15px;
+    background-color: #ffffff;
+    z-index: -1;
+}
 
-.main {
-     display: flex;
-     align-items: center;
-     justify-content: flex-start;
-     gap: 100px;
-     max-width: 1100px;
-     margin: 0 auto;
+.container-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    bottom: -15px;
+    right: -15px;
+    left: -15px;
+    background-color: #ffffff;
+    z-index: -2;
+}
+
+.container-wrapper::before, .container-wrapper::after {
+    background: linear-gradient(45deg, #aaaaaa 0 50%, #75757b 50% 100%);
+}
+
+/* Pixel or divs */
+.container > * {
+    height: 100%;
+    background-color: #ffffff;
+    transition: all 0.5s;
+}
+/* buttons */
+button {
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 14px;
+    background-color: var(--primary-light);
+    margin: 5px;
+    color: white;
+    border: 2px solid black;
+    line-height: 27px;
     }
+
+    button:focus, input:focus {
+        outline: none;
+        box-shadow: 0 1px 10px 0 rgba(240, 240, 240, 1);
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        width: calc(75vw + 40px);
+        max-width: calc(var(--content-width) + 40px);
+        margin: 0 auto;
+        flex-wrap: wrap;
+       }
+
+       .buttons > * {
+           flex: 1 1 auto;
+       }
+
+#input-color {
+    border: none;
+    height: 25px;
+    width: 25px;
+    padding: 0;
+}
+
+input[type="color" i] {
+    background-color: black;
+}
+
+/* Options Under Pixel Container */
+.grid-options {
+    width: calc(75vw + 40px);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+    max-width: calc(var(--content-width) + 40px);
+}
+
+.grid-options > * {
+    flex: 1 1 auto;
+}
+
+/* Pixel Size Slider */
+.size-container {
+    width: 55vw;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+
+.size-container p {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    margin: 7px 0;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    background: var(--primary-light);
+    outline: none;
+    transform: rotate(180deg);
+    transition: 0.2s;
+    border-radius: 7px;
+}
+
+/* Chrome */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    background: var(--secondary-light);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Firefox */
+slider::-moz-range-thumb {
+    width: 15px;
+    height: 30px;
+    background: var(--secondary-light);
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 1500px) {
+    :root {
+        --content-width: 500px;
+    }
+}
